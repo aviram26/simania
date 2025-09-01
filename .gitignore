@@ -10,6 +10,9 @@ __pycache__/
 *.csv
 *.log
 
+# Data folder (contains generated CSV files)
+data/
+
 # IDE
 .vscode/
 .idea/

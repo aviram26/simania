@@ -17,7 +17,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('scraper.log'),
+        logging.FileHandler('logs/scraper.log'),
         logging.StreamHandler(sys.stdout)
     ]
 )
@@ -113,7 +113,7 @@ class SimaniaScraper:
     def scrape_user_books(self, user_id, max_pages=None, output_file=None):
         """Scrape all books for a specific user"""
         if output_file is None:
-            output_file = f"simania_books_user_{user_id}.csv"
+            output_file = f"data/user-books/simania_books_user_{user_id}.csv"
             
         all_books = []
         page_num = 1
@@ -205,7 +205,7 @@ class SimaniaScraper:
         
         for user_id in user_ids:
             logging.info(f"Processing user {user_id}")
-            user_books = self.scrape_user_books(user_id, max_pages, f"simania_books_user_{user_id}.csv")
+            user_books = self.scrape_user_books(user_id, max_pages, f"data/user-books/simania_books_user_{user_id}.csv")
             all_books.extend(user_books)
             
             # Add delay between users
